@@ -7,3 +7,5 @@ obj
 .vs
 packages
 Algorithms-CSharp-Course.sln
+/Algorithms_DataStructure_Lib.csproj.user
+/ShipmentCharge.cs
