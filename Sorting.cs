@@ -52,13 +52,23 @@ namespace Algorithms_DataStructure_Lib
 
         public static void ShellSort(int[] array)
         {
-            int gap = array.Length / 2 + 1;
-            for (; gap > 0; gap = gap / 2)
+            int gap = 1;
+            if (gap < array.Length / 3)
             {
-                for (int i = 0; i < array.Length && array[i] > array[i + gap]; i = i + gap)
+                gap = 3 * gap + 1;
+            }
+
+            while (gap >= 1)
+            {
+                for (int i = 1; i < array.Length; i++)
                 {
-                    Swap(array, i, i + gap);
+                    for (int j = i; j >= gap && array[j] < array[j - gap]; j -= gap)
+                    {
+                        Swap(array, j, j - gap);
+                    }
+
                 }
+                gap /= 3;
             }
         }
 

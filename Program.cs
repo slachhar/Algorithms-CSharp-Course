@@ -62,7 +62,7 @@ namespace Algorithms_DataStructure_Lib
             var newArray = new object[array.Length - 1];
         }
 
-        static string timeConversion(string s)
+        static string TimeConversion(string s)
         {
             /*
              * Write your code here.
@@ -92,6 +92,5 @@ namespace Algorithms_DataStructure_Lib
             else
                 return factorial *= RecursiveFactorial(n-1);
         }
-
     }
 }
