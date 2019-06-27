@@ -120,5 +120,39 @@ namespace Algorithms_DataStructure_Lib
                 }
             }
         }
+
+        public static void QuickSort(int[] array)
+        {
+            int[] aux = new int[array.Length];
+
+            Sort(0, 0, 1, array.Length);
+
+            void Sort(int pivot, int swapPoint, int movingPoint, int arrayLength)
+            {
+                if (arrayLength == 0)
+                    return;
+
+                int i = swapPoint;
+                int j = movingPoint;
+
+                for (int k = 0; k < arrayLength - 1; k++)
+                {
+                    if (array[pivot] > array[j])
+                    {
+                        if (i + 1 != j)
+                        {
+                            Swap(array, i + 1, j);
+                        }
+                        i += 1;
+                    }
+                    j += 1;
+                }
+
+                Swap(array, pivot, i);
+
+                Sort(pivot, swapPoint, movingPoint, i - 1);
+                Sort(i + 1, i + 1, i + 2, array.Length - i - 1);
+            }
+        }
     }
 }
