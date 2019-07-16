@@ -12,7 +12,8 @@ namespace Algorithms_DataStructure_Lib
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(RecursiveFactorial(5));
+            Sorting.QuickSort(new int[] {44, 88,77,22,66,11,99,55,0,33 });
+            
             Console.Read();
         }
 

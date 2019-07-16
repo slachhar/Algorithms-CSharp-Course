@@ -124,18 +124,33 @@ namespace Algorithms_DataStructure_Lib
         public static void QuickSort(int[] array)
         {
             int[] aux = new int[array.Length];
-
+            int count = 0;
             Sort(0, 0, 1, array.Length);
+            //Console.Read();
+
+            void print(int[] arr, int start, int end)
+            {
+                for (int i = start; i < end; i++)
+                {
+                    Console.Write(arr[i] + "  ");
+                }
+                Console.WriteLine();
+            }
 
             void Sort(int pivot, int swapPoint, int movingPoint, int arrayLength)
             {
-                if (arrayLength == 0)
+                //Console.WriteLine(string.Format("{0} => {1},{2},{3}, {4}", count++, pivot, swapPoint, movingPoint, arrayLength));
+
+                //Console.WriteLine("");
+                //Console.Read();
+                if (arrayLength <= 1 || swapPoint > movingPoint || movingPoint > array.Length)
                     return;
+
 
                 int i = swapPoint;
                 int j = movingPoint;
 
-                for (int k = 0; k < arrayLength - 1; k++)
+                for (int k = 0; k < arrayLength - 1 && i <= array.Length - 1 && j <= array.Length - 1; k++)
                 {
                     if (array[pivot] > array[j])
                     {
@@ -150,8 +165,27 @@ namespace Algorithms_DataStructure_Lib
 
                 Swap(array, pivot, i);
 
-                Sort(pivot, swapPoint, movingPoint, i - 1);
+                //Console.WriteLine("Going Left :");
+                //print(array, pivot, i);
+
+                Sort(pivot, swapPoint, movingPoint, i - swapPoint);
+
+                //foreach (int num in array)
+                //{
+                //    Console.Write(num + ",");
+                //}
+                //Console.WriteLine(" ");
+
+                //Console.WriteLine("Going Right :");
+                //print(array, i + 1, arrayLength - i - 1);
+
                 Sort(i + 1, i + 1, i + 2, array.Length - i - 1);
+
+                //foreach (int num in array)
+                //{
+                //    Console.Write(num + ",");
+                //}
+                //Console.WriteLine(" ");
             }
         }
     }
