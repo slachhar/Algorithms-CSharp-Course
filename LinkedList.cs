@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms_CSharp_Course
 {
-	public class SinglyLinkedList<T>
+	public class SinglyLinkedList<T>: IEnumerable<T>
 	{
 		public Node<T> Head { get; set; }
 		public Node<T> Tail { get; set; }
@@ -124,6 +125,22 @@ namespace Algorithms_CSharp_Course
 				}
 			}
 			count--;
+		}
+
+		public IEnumerator<T> GetEnumerator()
+		{
+			Node<T> current = Head;
+
+			while (current != Tail)
+			{
+				yield return current.Value;
+				current = current.Next;
+			}
+		}
+
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			return GetEnumerator();
 		}
 	}
 }
