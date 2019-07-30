@@ -5,23 +5,24 @@ namespace Algorithms_DataStructure_Lib_Tests
 {
 	internal class LinkedListStack<T>
 	{
-		SinglyLinkedList<T> _items = new SinglyLinkedList<T>();
+		private readonly SinglyLinkedList<T> _items = new SinglyLinkedList<T>();
+		
 		public bool? IsEmpty => _items.count == 0;
 		public int Count => _items.count;
 
 		internal void Push(T v)
 		{
-			_items.AddLast(v);
+			_items.AddFirst(v);
 		}
 
 		internal void Pop()
 		{
-			_items.RemoveLast();
+			_items.RemoveFirst();
 		}
 
 		internal T Peek()
 		{
-			return _items.Tail.Value;
+			return _items.Head.Value;
 		}
 	}
 }
