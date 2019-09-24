@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
-namespace Algorithms_DataStructure_Lib_Tests
+namespace Algorithms_CSharp_Course
 {
-	public class ArrayStack<T>
+	public class ArrayStack<T>: IEnumerable<T>
 	{
 		private T[] _items = null;
 		public bool IsEmpty => Count == 0;
@@ -45,6 +47,16 @@ namespace Algorithms_DataStructure_Lib_Tests
 				throw new NotImplementedException();
 
 			return _items[Count - 1];
+		}
+
+		public IEnumerator<T> GetEnumerator()
+		{
+			throw new NotImplementedException();
+		}
+
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			return GetEnumerator();
 		}
 	}
 }

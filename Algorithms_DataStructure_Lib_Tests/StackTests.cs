@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Algorithms_CSharp_Course;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;

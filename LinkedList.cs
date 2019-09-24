@@ -131,7 +131,7 @@ namespace Algorithms_CSharp_Course
 		{
 			Node<T> current = Head;
 
-			while (current != Tail)
+			while (current != null)
 			{
 				yield return current.Value;
 				current = current.Next;
